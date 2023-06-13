@@ -1,7 +1,9 @@
 
 import './App.css'
+import CleanUpFunc from './Components/useEffect/CleanUpFunc'
+// import ChangeTitle from './Components/useEffect/ChangeTitle'
 // import Todo from './Components/useState.jsx/TodoList/Todo'
-import Form from './Components/useState.jsx/Form'
+// import Form from './Components/useState.jsx/Form'
 // import UseStateArray from './Components/useState.jsx/UseStateArray'
 // import UseStateObject from './Components/useState.jsx/UseStateObject'
 // import Usestate from './Components/useState.jsx/Usestate'
@@ -13,8 +15,10 @@ function App() {
     {/* <Usestate /> */}
     {/* <UseStateArray /> */}
     {/* <UseStateObject /> */}
-    <Form />
+    {/* <Form /> */}
     {/* <Todo /> */}
+    {/* <ChangeTitle /> */}
+    <CleanUpFunc />
     </>
   )
 }
