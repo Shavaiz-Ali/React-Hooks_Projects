@@ -1,6 +1,8 @@
 
 import './App.css'
-import CleanUpFunc from './Components/useEffect/CleanUpFunc'
+import UncontrolledForm from './Components/useref/UncontrolledForm'
+// import CleanUpFunc from './Components/useEffect/CleanUpFunc'
+// import FetchAPi from './Components/useEffect/FetchAPi'
 // import ChangeTitle from './Components/useEffect/ChangeTitle'
 // import Todo from './Components/useState.jsx/TodoList/Todo'
 // import Form from './Components/useState.jsx/Form'
@@ -18,7 +20,9 @@ function App() {
     {/* <Form /> */}
     {/* <Todo /> */}
     {/* <ChangeTitle /> */}
-    <CleanUpFunc />
+    {/* <CleanUpFunc /> */}
+    {/* <FetchAPi /> */}
+    <UncontrolledForm />
     </>
   )
 }
