@@ -1,6 +1,8 @@
 
 import './App.css'
-import UncontrolledForm from './Components/useref/UncontrolledForm'
+// import MovieApi from './Components/RapidApi_Projects/MovieApi'
+import Food from './Components/FoodLIst/Food'
+// import UncontrolledForm from './Components/useref/UncontrolledForm'
 // import CleanUpFunc from './Components/useEffect/CleanUpFunc'
 // import FetchAPi from './Components/useEffect/FetchAPi'
 // import ChangeTitle from './Components/useEffect/ChangeTitle'
@@ -11,7 +13,6 @@ import UncontrolledForm from './Components/useref/UncontrolledForm'
 // import Usestate from './Components/useState.jsx/Usestate'
 
 function App() {
-
   return (
     <>
     {/* <Usestate /> */}
@@ -22,7 +23,9 @@ function App() {
     {/* <ChangeTitle /> */}
     {/* <CleanUpFunc /> */}
     {/* <FetchAPi /> */}
-    <UncontrolledForm />
+    {/* <UncontrolledForm /> */}
+    <Food />
+    {/* <MovieApi /> */}
     </>
   )
 }

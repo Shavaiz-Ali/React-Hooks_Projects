@@ -4,6 +4,8 @@ import icon from "../../../assets/boxicon.png";
 const Todo = () => {
   const [inputData, setInputData] = useState("");
   const [items, setItems] = useState([]);
+
+  // addItems Function
   const addItems = () => {
     if (!inputData) {
       alert("Add your Data");
@@ -12,18 +14,26 @@ const Todo = () => {
       setInputData("");
     }
   };
-  const removeItem = (id) =>{
+
+  // Remove Items function
+  const removeItem = (id) => {
     // console.log(id)
-    const deletedItems = items.filter((hjh, ind) =>{
+    const deletedItems = items.filter((hjh, ind) => {
       // console.log(ind );
       return ind !== id;
-    })
+    });
     // console.log(deletedItems);
-    setItems(deletedItems)
-  }
-  const removeAll = () =>{
-    setItems([])
-  }
+    setItems(deletedItems);
+  };
+  // handleling key press
+  const handleKeyPress = (e) => {
+    if (e.key == "Enter") {
+      addItems();
+    }
+  };
+  const removeAll = () => {
+    setItems([]);
+  };
   return (
     <>
       <div className="main-div bg-slate-700 h-[100vh] text-center mx-auto">
@@ -46,6 +56,7 @@ const Todo = () => {
                 placeholder="Add Items..."
                 className="py-3 px-5 outline-none"
                 value={inputData}
+                onKeyPress={handleKeyPress}
                 onChange={(e) => setInputData(e.target.value)}
               />
             </span>
@@ -64,8 +75,11 @@ const Todo = () => {
               <Fragment key={ind}>
                 <div className="flex items-center justify-between text-white bg-slate-950 hover:bg-white hover:text-black xl:w-[25%] lg:w-[40%] sm:w-[55%] w-[85%] transition-all ease-in mx-auto rounded py-1 px-5 mt-3">
                   <h1 className="text-2xl ">{val}</h1>
-                  <span className="text-5xl cursor-pointer hover:text-red-600" onClick={() => removeItem(ind)}>
-                    - 
+                  <span
+                    className="text-5xl cursor-pointer hover:text-red-600"
+                    onClick={() => removeItem(ind)}
+                  >
+                    -
                   </span>
                 </div>
               </Fragment>
@@ -76,7 +90,10 @@ const Todo = () => {
         {/* clear all button  */}
         <div className="clear-all">
           <div className="button">
-            <button className="py-3 px-5 text-black text-2xl bg-white hover:bg-slate-950 hover:text-white transition-all ease-in rounded mt-3" onClick={removeAll}>
+            <button
+              className="py-3 px-5 text-black text-2xl bg-white hover:bg-slate-950 hover:text-white transition-all ease-in rounded mt-3"
+              onClick={removeAll}
+            >
               Clear All
             </button>
           </div>
