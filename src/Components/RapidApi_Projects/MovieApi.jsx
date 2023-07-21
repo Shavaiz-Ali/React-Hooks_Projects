@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const MovieApi = () => {
   const [inputData, setInputData] = useState("");
-  const [items, setItems] = useState([{}]);
+  const [items, setItems] = useState([]);
 
   const [render, setRender] = useState("");
 

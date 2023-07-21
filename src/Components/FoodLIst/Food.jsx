@@ -1,29 +1,33 @@
 // import img1 from "../../assets/men.jpg";
 import { useState, useEffect } from "react";
+import axios from "axios";
 // import Data from "./FoodApi";
 const Food = () => {
   const [foodItems, setFoodItems] = useState([]);
+  const [cat, setCat] = useState("burgers");
 
   const Fetch = async () => {
+    console.log(cat);
     try {
-      const response = await fetch(
-        `https://free-food-menus-api-production.up.railway.app/best-foods`
+      const response = await axios.get(
+        `https://free-food-menus-api-production.up.railway.app/${cat}`
       );
-      const result = await response.json();
+      const result = await response.data;
       setFoodItems(result);
       console.log(result);
     } catch (error) {
       console.error(error);
     }
   };
+
   useEffect(() => {
     Fetch();
-  }, []);
+  }, [cat]);
 
   //   making navbar functional
   // const filterMenu = (category) =>{
   //     const updatedItems = fetch.filter((value) =>{
-  //         return value.category === name
+  //         return value.category === category
   //     })
   //     setFoodItems(updatedItems)
   //     console.log(setFoodItems)
@@ -40,39 +44,23 @@ const Food = () => {
         <div className="Navbar mt-5">
           <nav className="flex flex-wrap justify-around">
             <li className="text-white sm:text-xl text-[0.8rem] list-none bg-orange-600 py-2 md:px-9 sm:px-6 px-3 text-center outline-none border-0 rounded hover:bg-orange-500 transition-all ease cursor-pointer">
-              <a href="/"
-            //    onClick={() => filterMenu("burgers")}
-               >
-                Burgers
-              </a>
+              <button onClick={() => setCat("burgers")}>Burgers</button>
             </li>
             <li className="text-white sm:text-xl text-[0.8rem] list-none bg-orange-600 py-2 md:px-9 sm:px-6 px-3 text-center outline-none border-0 rounded hover:bg-orange-500 transition-all ease cursor-pointer">
-              <a href="/"
-            //    onClick={() => filterMenu("fried-chicken")}
-              >
+              <button onClick={() => setCat("fried-chicken")}>
                 Fried Chicken
-              </a>
+              </button>
             </li>
             <li className="text-white sm:text-xl text-[0.8rem] list-none bg-orange-600 py-2 md:px-9 sm:px-6 px-3 text-center outline-none border-0 rounded hover:bg-orange-500 transition-all ease cursor-pointer">
-              <a href="/" 
-            //   onClick={() => filterMenu("pizzas")}/
-              >
-                Pizzas
-              </a>
+              <button onClick={() => setCat("pizzas")}>Pizzas</button>
             </li>
             <li className="text-white sm:text-xl text-[0.8rem] list-none bg-orange-600 py-2 md:px-9 sm:px-6 px-3 text-center outline-none border-0 rounded hover:bg-orange-500 transition-all ease cursor-pointer">
-              <a href="/"
-            //    onClick={() => filterMenu("sandwiches")}
-               >
-                SandWiches
-              </a>
+              <button onClick={() => setCat("sandwiches")}>SandWiches</button>
             </li>
             <li className="text-white sm:text-xl text-[0.8rem] list-none bg-orange-600 py-2 md:px-9 sm:px-6 px-3 text-center outline-none border-0 rounded hover:bg-orange-500 transition-all ease cursor-pointer">
-              <a href="/"
-            //    onClick={() => filterMenu("desserts")}
-               >
+              <button onClick={() => setCat("desserts")} >
                 Desserts
-              </a>
+              </button>
             </li>
           </nav>
         </div>
@@ -81,7 +69,7 @@ const Food = () => {
             {foodItems.map((value) => {
               const { id, img, name, dsc } = value;
               return (
-                <>
+                <div key={id}>
                   <div
                     className="card flex border border-slate-200 rounded-md shadow-lg c"
                     key={id}
@@ -110,7 +98,7 @@ const Food = () => {
                       </div>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
